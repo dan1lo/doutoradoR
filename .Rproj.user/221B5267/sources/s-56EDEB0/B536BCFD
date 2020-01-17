@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574725683584.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B536BCFD",
+    "lastKnownWriteTime" : 1573491153,
+    "last_content_update" : 1573491153,
+    "path" : "~/variavelSegundaOrdem.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "77,31",
+        "scrollLine" : "55"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,81 @@
+library(readxl)
+library(sem)
+library(lavaan)
+dadosDoutoradoModificado <- read_excel("dadosDoutoradoModificado.xlsx")
+
+
+View(dadosDoutoradoModificado)
+
+model <- '
+# latent variable definitions
+
+emergencia =~ EM1+EM2+EM3+EM4
+treinamento =~ T1+T2+T3+T4
+interpessoal=~ I1+I2+I3+I4
+stress =~  S1+S3
+criatividade =~ C1+C3+C4
+
+
+burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5
+burnoutCinismo =~ ci1+ci2+ci3+ci4
+burnoutEficacia =~ et2+et3+et5+et6
+
+satisfacao=~ sat1+sat2+satXet6
+
+instabilidadeTarefas =~ reque1+reque2+reque3+req4+req5+req6+req7
+instabilidadeEquipe=~ equipe1+equipe2+equipe3
+instabilidadetecnica=~ tec1+tec2
+
+# covariance between factor_1 and factor_2
+emergencia ~~ burnoutExaustaoEmocional
+treinamento ~~ burnoutExaustaoEmocional
+interpessoal ~~ burnoutExaustaoEmocional
+stress ~~ burnoutExaustaoEmocional
+criatividade ~~ burnoutExaustaoEmocional
+
+emergencia ~~ burnoutCinismo
+treinamento ~~ burnoutCinismo
+interpessoal ~~ burnoutCinismo
+stress ~~ burnoutCinismo
+criatividade ~~ burnoutCinismo
+
+
+emergencia ~~ burnoutEficacia
+treinamento ~~ burnoutEficacia
+interpessoal ~~ burnoutEficacia
+stress ~~ burnoutEficacia
+criatividade ~~ burnoutEficacia
+
+emergencia ~~ satisfacao
+treinamento ~~ satisfacao
+interpessoal ~~ satisfacao
+stress ~~ satisfacao
+criatividade ~~ satisfacao
+
+instabilidadeEquipe ~~ burnoutCinismo
+instabilidadetecnica~~ burnoutCinismo
+instabilidadeTarefas~~ burnoutCinismo
+# 
+instabilidadeEquipe ~~ burnoutExaustaoEmocional
+instabilidadetecnica~~ burnoutExaustaoEmocional
+instabilidadeTarefas~~ burnoutExaustaoEmocional
+# 
+instabilidadeEquipe ~~ burnoutEficacia
+instabilidadetecnica~~ burnoutEficacia
+instabilidadeTarefas~~ burnoutEficacia
+# 
+instabilidadeEquipe ~~ satisfacao
+instabilidadetecnica~~ satisfacao
+instabilidadeTarefas~~ 
+
+
+#variavel segunda ordem
+
+adaptabilidade =~ emergencia+treinamento+interpessoal+stress+criatividade
+
+'
+fit <- sem(model, data=dadosDoutoradoModificado)
+summary(fit, fit.measures=TRUE)
+View(fit)
+lavInspect(fit, "cov.lv")
+measurement.invariance(model, data=dadosDoutoradoModificado, group ="school" )

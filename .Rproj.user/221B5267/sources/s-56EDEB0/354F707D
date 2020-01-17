@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576544306620.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "354F707D",
+    "lastKnownWriteTime" : 1578048488,
+    "last_content_update" : 1578149768834,
+    "path" : "~/teste/doutorado que deu certo.R",
+    "project_path" : "doutorado que deu certo.R",
+    "properties" : {
+        "cursorPosition" : "159,0",
+        "scrollLine" : "139",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

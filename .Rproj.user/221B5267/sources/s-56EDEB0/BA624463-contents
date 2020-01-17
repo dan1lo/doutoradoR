@@ -1,0 +1,290 @@
+library(sem)
+library(lavaan)
+library(semTools)
+library(tidyverse)
+library(knitr)
+library(psych)
+library(MBESS)
+dados<-read.csv2(file = "doutoradoModelo2.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
+names(dados)
+
+modelo.v1 <- '
+
+#STRESS =~ S1+S2+S3
+#EMOCAO =~ EM1+ EM2 +EM3+ EM4
+#INTER =~ I1+I3+I4
+#CRIATIVIDADE =~ C2+C3+C4
+TREIN =~ T1+T2+T3+T4
+
+
+#T1~~T2
+
+#EM2 ~~ EM3
+
+
+
+#satisfacao=~ sat1+sat2+sat3
+#satisfacao ~ STRESS 
+# 0.360
+
+#satisfacao ~ EMOCAO
+# 0.345
+
+#satisfacao ~ INTER
+# 0.344
+
+#satisfacao ~ CRIATIVIDADE
+#0.283
+
+# satisfacao ~ TREIN
+# 0.286 
+
+#burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
+#burnoutCinismo =~ ci1+ci2+ci3+ci4
+burnoutEficacia =~ et1+et2+et3+et6+et4
+
+et3 ~~ et6
+#ci3 ~~ ci4
+et3 ~~ et5
+#ee3 ~~ ee5
+#ci2 ~~ ci4
+et1 ~~ et2
+#ee2 ~~ ee4
+et6 ~~ et4
+et3 ~~ et4
+#ee1 ~~ ee2
+#ci2 ~~ ci3
+#ee1 ~~ ee3
+#ee2 ~~ ee5
+#ee1 ~~ ee5
+
+#ee1 ~~ ee4
+
+
+et2 ~~ et3
+
+et1 ~~ et4
+
+#instabilidadeTarefas =~ reque2+reque3+req4+req5+req6+req7
+
+instabilidadeEquipe=~ equipe1+equipe2+equipe3
+#instabilidadetecnica=~ tec1+tec2
+
+#satisfacao ~ instabilidadeTarefas 
+# -0.204
+
+#satisfacao ~ instabilidadeEquipe
+# -0.291
+
+#satisfacao ~ instabilidadetecnica
+# -0.112 p 0.091
+
+
+#satisfacao:= STRESS * instabilidadeTarefas
+
+#satisfacao ~ a* TREIN+ b*instabilidadeTarefas
+#EI := a * b
+
+
+
+#burnout  ~ STRESS
+# -0.426
+
+#burnout ~ EMOCAO
+# -0.411
+
+#burnout ~ INTER
+# - 0.441
+#burnout ~ CRIATIVIDADE
+#- 0.393
+
+#burnout ~ TREIN
+# -0.414
+
+
+#burnoutExaustaoEmocional  ~ STRESS
+# p alto
+
+#burnoutExaustaoEmocional ~ EMOCAO
+# p alto
+
+#burnoutExaustaoEmocional ~ INTER
+# p alto
+#burnoutExaustaoEmocional ~ CRIATIVIDADE
+#- p alto
+
+#burnoutExaustaoEmocional ~ TREIN
+# - p alto
+
+
+
+
+#burnoutCinismo  ~ STRESS
+# p alto
+
+#burnoutCinismo ~ EMOCAO
+# p alto
+
+#burnoutCinismo ~ INTER
+# p alto
+#burnoutCinismo ~ CRIATIVIDADE
+#- p alto
+
+#burnoutCinismo ~ TREIN
+# - p alto
+
+
+#burnoutEficacia  ~ STRESS
+# 0.314
+
+#burnoutEficacia ~ EMOCAO
+# 0.308
+
+#burnoutEficacia ~ INTER
+# 0.282
+#burnoutEficacia ~ CRIATIVIDADE
+#- 0.264
+
+#burnoutEficacia ~ TREIN
+# - 0.215
+
+#Adapt =~ CRIATIVIDADE + STRESS+ EMOCAO + INTER+ TREIN
+#satisfacao ~ Adapt
+# 0.341
+
+#burnout ~ Adapt
+#-0.414
+
+#burnout ~ instabilidadeTarefas
+# 0.349
+#burnout ~ instabilidadeEquipe
+# 0.458
+#burnout ~ instabilidadetecnica
+# 0.430
+
+#burnoutEficacia ~ instabilidadeTarefas
+# 0.154 0.001
+#burnoutCinismo ~ instabilidadeTarefas
+# p alto
+#burnoutExaustaoEmocional ~ instabilidadeTarefas
+# p alto
+
+
+#burnoutEficacia ~ instabilidadeEquipe 
+# 0.188 0.002
+#burnoutCinismo ~ instabilidadeEquipe
+# p alto
+#burnoutExaustaoEmocional ~ instabilidadeEquipe
+# p alto
+
+#burnoutEficacia ~ instabilidadetecnica
+# 0.164 p 0.002
+#burnoutCinismo ~ instabilidadetecnica
+# p alto
+#burnoutExaustaoEmocional ~ instabilidadetecnica
+# p alto
+
+
+
+#satisfacao ~ a*STRESS + b*instabilidadeTarefas
+# - 0.06 P 0.006
+#satisfacao ~ a* EMOCAO+ b*instabilidadeTarefas
+#-0.06 P 0.005
+#satisfacao ~ a* INTER+ b*instabilidadeTarefas
+# - 0.057 P 0.007
+#satisfacao ~ a* CRIATIVIDADE+ b*instabilidadeTarefas
+# - 0.051 P 0.008
+#satisfacao ~ a* TREIN+ b*instabilidadeTarefas
+# - 0.41 P 0.015
+
+
+#satisfacao ~ a*STRESS + b*instabilidadeEquipe
+# - 0.123 p 0.000
+#satisfacao ~ a* EMOCAO+ b*instabilidadeEquipe
+#-0.125 P 0.000
+#satisfacao ~ a* INTER+ b*instabilidadeEquipe
+# - 0.0114 P 0.000
+#satisfacao ~ a* CRIATIVIDADE+ b*instabilidadeEquipe
+# - 0.088 P 0.001
+#satisfacao ~ a* TREIN+ b*instabilidadeEquipe
+# - 0.088 P 0.001
+
+
+#EI := a * b
+
+
+#burnoutExaustaoEmocional ~ a*STRESS + b*instabilidadeTarefas
+# -0.113 P 0.000
+#burnoutExaustaoEmocional ~ a* EMOCAO+ b*instabilidadeTarefas
+#-0.104 P 0.000
+#burnoutExaustaoEmocional ~ a* INTER+ b*instabilidadeTarefas
+# - 0.068 P 0.008
+#burnoutExaustaoEmocional ~ a* CRIATIVIDADE+ b*instabilidadeTarefas
+# -0.088 P 0.002
+#burnoutExaustaoEmocional ~ a* TREIN+ b*instabilidadeTarefas
+# - 0.077 P 0.001
+
+#burnoutExaustaoEmocional ~ a*STRESS + b*instabilidadeEquipe
+# -0.187 P 0.000
+#burnoutExaustaoEmocional ~ a* EMOCAO+ b*instabilidadeEquipe
+#-0.195 P 0.000
+#burnoutExaustaoEmocional ~ a* INTER+ b*instabilidadeEquipe
+# - 0.107 P 0.007
+#burnoutExaustaoEmocional ~ a* CRIATIVIDADE+ b*instabilidadeEquipe
+# -0.110 P 0.003
+#burnoutExaustaoEmocional ~ a* TREIN+ b*instabilidadeEquipe
+# - 0.143 P 0.001
+
+
+#burnoutCinismo ~ a*STRESS + b*instabilidadeTarefas
+# -0.089 p 0.002
+#burnoutCinismo ~ a* EMOCAO+ b*instabilidadeTarefas
+#0.102 P 0.001
+#burnoutCinismo ~ a* INTER+ b*instabilidadeTarefas
+# - -0.081 P 0.006
+#burnoutCinismo ~ a* CRIATIVIDADE+ b*instabilidadeTarefas
+# -0.069 P 0.013
+#burnoutCinismo ~ a* TREIN+ b*instabilidadeTarefas
+# - 0.079 P 0.001
+
+#burnoutCinismo ~ a*STRESS + b*instabilidadeEquipe
+# -0.139 P 0.002
+#burnoutCinismo ~ a* EMOCAO+ b*instabilidadeEquipe
+#-0.180 P 0.000
+#burnoutCinismo ~ a* INTER+ b*instabilidadeEquipe
+# -0.115 P 0.008
+#burnoutCinismo ~ a* CRIATIVIDADE+ b*instabilidadeEquipe
+# -0.080 P 0.025
+#burnoutCinismo ~ a* TREIN+ b*instabilidadeEquipe
+# - 0.136 P 0.001
+
+
+#burnoutEficacia ~ a*STRESS + b*instabilidadeTarefas
+# fit tuim p alto
+#burnoutEficacia ~ a* EMOCAO+ b*instabilidadeTarefas
+#fit ruiim p alto
+#burnoutEficacia ~ a* INTER+ b*instabilidadeTarefas
+#fit ruiim p alto
+#burnoutEficacia ~ a* CRIATIVIDADE+ b*instabilidadeTarefas
+# fit ruiim3 p alto
+#burnoutEficacia ~ a* TREIN+ b*instabilidadeTarefas
+# - 0.079 P 0.001
+
+#burnoutEficacia ~ a*STRESS + b*instabilidadeEquipe
+# -0.139 P 0.002
+#burnoutEficacia ~ a* EMOCAO+ b*instabilidadeEquipe
+#-0.180 P 0.000
+#burnoutEficacia ~ a* INTER+ b*instabilidadeEquipe
+# -0.115 P 0.008
+#burnoutEficacia ~ a* CRIATIVIDADE+ b*instabilidadeEquipe
+# -0.080 P 0.025
+burnoutEficacia ~ a* TREIN+ b*instabilidadeEquipe
+# - 0.136 P 0.001
+EI := a * b
+
+' #verificar modelo completo
+
+fit <- sem(modelo.v1, data=dados, std.lv=TRUE)
+summary(fit, fit.measures=TRUE, rsquare =TRUE, standardized = TRUE)
+modificationindices(modelo.v1.fit, sort =TRUE, minimum.value = 9)
+lavInspect(fit, "cov.lv")

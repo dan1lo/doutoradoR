@@ -1,0 +1,24 @@
+instabilidadeTarefas =~ reque2+reque3+req4+req5+req6+req7
+
+burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
+burnoutCinismo =~ ci1+ci2+ci3+ci4
+burnoutEficacia =~ et1+et2+et3+et6+et4
+
+et3 ~~ et6
+ci3 ~~ ci4
+ee3 ~~ ee5
+ci2 ~~ ci4
+ee2 ~~ ee4
+et6 ~~ et4
+et3 ~~ et4
+ee1 ~~ ee2
+ci2 ~~ ci3
+ee1 ~~ ee3
+ee2 ~~ ee5
+ee1 ~~ ee5
+ee1 ~~ ee4
+et2 ~~ et3
+et1 ~~ et2
+et1 ~~ et4
+
+burnout =~ burnoutExaustaoEmocional + burnoutCinismo + burnoutEficacia

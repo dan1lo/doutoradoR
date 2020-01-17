@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578048498201.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BA624463",
+    "lastKnownWriteTime" : 1578048509,
+    "last_content_update" : 1578266967590,
+    "path" : "~/teste/mee.R",
+    "project_path" : "mee.R",
+    "properties" : {
+        "cursorPosition" : "289,0",
+        "scrollLine" : "264",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,64 @@
+library(readxl)
+library(sem)
+library(lavaan)
+dadosDoutoradoModificado <- read_excel("dadosDoutoradoModificado.xlsx")
+
+
+View(dadosDoutoradoModificado)
+
+modelo.v2 <- '
+# latent variable definitions
+
+emergencia =~ EM1+EM2+EM3+EM4
+treinamento =~ T1+T2+T3+T4
+interpessoal=~ I1+I2+I3+I4
+stress =~  S1+S3
+criatividade =~ C1+C3+C4
+
+
+burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5
+burnoutCinismo =~ ci1+ci2+ci3+ci4
+burnoutEficacia =~ et2+et3+et5+et6
+
+satisfacao=~ sat1+sat2+satXet6
+
+instabilidadeTarefas =~ reque1+reque2+reque3+req4+req5+req6+req7
+instabilidadeEquipe=~ equipe1+equipe2+equipe3
+instabilidadetecnica=~ tec1+tec2
+
+#adapt =~ emergencia+ treinamento+interpessoal+stress+criatividade
+#burnout =~ burnoutExaustaoEmocional+burnoutCinismo+burnoutEficacia
+#instabilidade =~instabilidadeTarefas+instabilidadeEquipe+instabilidadetecnica
+
+#instabilidade ~ adapt 
+#instabilidade recebe seta de adaptabilidade
+#burnout ~instabilidade
+#burnout recebe seta de instabilidade
+#satisfacao ~ instabilidade
+#satisfação recebe seta de instabilidade
+
+
+
+'
+ag.v2.fit <- sem(modelo.v2, data= dadosDoutoradoModificado, std.lv=TRUE)
+summary(ag.v2.fit, fit.measures=TRUE, standardized=TRUE, rsquare=TRUE)
+fitMeasures(ag.v2.fit)
+
+
+
+
+modelo.v2.fit <- cfa(modelo.v2, data = dadosDoutoradoModificado, std.lv=TRUE)
+summary (modelo.v2.fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+fitMeasures(modelo.v2.fit)
+
+
+
+fit <- sem(model, data=dadosDoutoradoModificado)
+summary(fit, fit.measures=TRUE)
+View(fit)
+lavInspect(fit, "cov.lv")
+
+fit@SampleStats@cov
+
+
+getOption("max.print")
