@@ -12,10 +12,10 @@ TREIN =~ T1+T2+T3+T4
 
 instabilidadeEquipe=~ equipe1+equipe2+equipe3
 ab =~ T1.equipe1 + T1.equipe2 + T1.equipe3 + T2.equipe1 + T2.equipe2 + T2.equipe3 + T3.equipe1 + T3.equipe2 + T3.equipe3 + T4.equipe1 + T4.equipe2 + T4.equipe3
-burnoutCinismo =~ ci1+ci2+ci3+ci4
-burnoutCinismo ~ a * TREIN
-burnoutCinismo ~ b * instabilidadeEquipe
-burnoutCinismo ~ ab
+burnoutEficacia =~ et1+et2+et3+et5+et6
+burnoutEficacia ~ a * TREIN
+burnoutEficacia ~ b * instabilidadeEquipe
+burnoutEficacia ~ ab
 
 T1.equipe2 ~~ T2.equipe2
 T1.equipe1 ~~ T2.equipe1
