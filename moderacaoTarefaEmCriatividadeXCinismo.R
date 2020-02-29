@@ -13,11 +13,11 @@ CRIATIVIDADE =~ C2+C3+C4
 instabilidadeTarefas=~ reque2+reque3+req5+req6+req7
 ab =~ C2.reque2 + C2.reque3 + C2.req5 + C2.req6 + C2.req7+ C3.reque2 + C3.reque3 + C3.req5 + C3.req6 + C3.req7+ C4.reque2 + C4.reque3 + C4.req5 + C4.req6 + C4.req7
 
-burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
+burnoutCinismo =~ ci1+ci2+ci3+ci4
 
-burnoutExaustaoEmocional ~ a * CRIATIVIDADE
-burnoutExaustaoEmocional ~ b * instabilidadeTarefas
-burnoutExaustaoEmocional ~ ab
+burnoutCinismo ~ a * CRIATIVIDADE
+burnoutCinismo ~ b * instabilidadeTarefas
+burnoutCinismo ~ ab
 
 C2.reque2 ~~ C2.reque3 
 C2.reque3 ~~   C2.req5  
