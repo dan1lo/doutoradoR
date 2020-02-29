@@ -8,8 +8,7 @@ names(dados)
 
 modelo.v1 <- '
 
-
-TREIN =~ T1+T2+T3+T4
+EMOCAO =~ EM1+ EM2 +EM3+ EM4
 
 
 burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
@@ -22,7 +21,7 @@ instabilidadeTarefas =~ reque2+reque3+req4+req5+req6+req7
 # burnoutExaustaoEmocional ~ STRESS   -0.362 0.000
 # instblddTr                 0.000        0.281
 
-#burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
+burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
 #--0.096 p 0.000
 #burnoutExaustaoEmocional ~                                                      
 #    EMOCAO                     0.000      -0.323

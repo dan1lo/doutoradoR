@@ -73,5 +73,7 @@ fitMeasures(modelo.v1.fit)
 modificationindices(modelo.v1.fit, sort =TRUE, minimum.value = 9)
 reliability(modelo.v1.fit)
 
+
+
 s <- standardizedSolution(modelo.v1.fit)
 s[s$op == "~~",]
