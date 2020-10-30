@@ -59,8 +59,17 @@ et2 ~~et6
  I1 ~~      I2
 I2 ~~      I3
 
-SATISFACAO ~ instabilidadeTarefas
-#SATISFACAO ~ c*TREIN + d*instabilidadeEquipe
+#SATISFACAO ~ instabilidadeTarefas
+SATISFACAO ~ instabilidadeEquipe
+#burnoutExaustaoEmocional~instabilidadeTarefas
+#instabilidadeTarefas ~ burnoutExaustaoEmocional
+#burnoutExaustaoEmocional~ instabilidadeEquipe
+
+#burnoutCinismo ~ instabilidadeTarefas
+#burnoutCinismo ~ instabilidadeEquipe
+#burnoutEficacia~ instabilidadeTarefas
+#burnoutEficacia ~ instabilidadeEquipe
+
 #ei1:= a*b
 #ei2:= c*d
 

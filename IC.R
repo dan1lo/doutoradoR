@@ -16,11 +16,6 @@ View(dados) # visualizar dados
 
 modelo.v2 <- '
 
-STRESS =~ S1+S2
-EMOCAO =~ EM1+EM3+ EM4
-INTER =~ I1+I2+I3
-CRIATIVIDADE =~ C1+C4+S3
-TREIN =~ T1+T2+T3+T4+I4
 
 
 SATISFACAO=~sat1+sa2+sat4+sat5

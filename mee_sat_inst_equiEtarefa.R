@@ -1,9 +1,8 @@
 library(sem)
-
 library(lavaan)
 library(semTools)
 library(sqldf)
-dados<-read.csv2(file = "doutoradoModelo20.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
+dados<-read.csv2(file = "teste/doutoradoModelo20.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
 
 names(dados)
 
