@@ -26,8 +26,8 @@ SATISFACAO=~ sat1+sat2+sat4
 #instabilidadeEquipe=~ equipe1+equipe2+equipe3
 
 
-#burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5
-burnoutCinismo =~ ci1+ci2+ci3+ci4
+burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5
+#burnoutCinismo =~ ci1+ci2+ci3+ci4
 #burnoutEficacia =~ et1+et2+et3+et6+et4
 
 et3 ~~  et6
@@ -48,11 +48,11 @@ I2 ~~      I3
 
 #SATISFACAO ~ instabilidadeTarefas
 #SATISFACAO ~ instabilidadeEquipe
-#burnoutExaustaoEmocional~SATISFACAO
+burnoutExaustaoEmocional~SATISFACAO
 #instabilidadeTarefas ~ burnoutExaustaoEmocional
 #burnoutExaustaoEmocional~ instabilidadeEquipe
 
-burnoutCinismo ~ SATISFACAO
+#burnoutCinismo ~ SATISFACAO
 #burnoutCinismo ~ instabilidadeEquipe
 #burnoutEficacia~ SATISFACAO
 #burnoutEficacia ~ instabilidadeEquipe
@@ -61,7 +61,7 @@ I1 ~~             I3
 
 ' #verificar modelo adaptabilidade
 
-modelo.v1.fit <- sem(modelo.v1, data=dados, std.lv=TRUE) 
+modelo.v1.fit <- sem(modelo.v1, data=dados, std.lv=TRUE, ordered = TRUE) 
 summary(modelo.v1.fit, fit.measures = TRUE, rsquare =TRUE, standardized = TRUE) # fitMeasures(modelo.v1.fit)
 lavInspect(modelo.v1.fit,"cor.lv")
 fitMeasures(modelo.v1.fit)

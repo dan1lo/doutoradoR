@@ -12,10 +12,10 @@ modelo.v1 <- '
 
 
 #STRESS =~ S1+S2+S3
-#EMOCAO =~ EM1+ EM2 +EM3+ EM4
+EMOCAO =~ EM1+ EM2 +EM3+ EM4
 #INTER =~ I1+I2+I3+I4
 #CRIATIVIDADE =~ C2+C3+C4
-TREIN =~ T1+T2+T3+T4
+#TREIN =~ T1+T2+T3+T4
 
 #T1~~T2
 
@@ -26,10 +26,10 @@ TREIN =~ T1+T2+T3+T4
 burnoutEficacia =~ et1+et2+et3+et6+et4
 
 #burnoutEficacia ~STRESS
-#burnoutEficacia ~EMOCAO
+burnoutEficacia ~EMOCAO
 #burnoutEficacia ~INTER
 #burnoutEficacia ~CRIATIVIDADE
-burnoutEficacia ~TREIN
+#burnoutEficacia ~TREIN
 
 et3 ~~ et6
 et1 ~~ et2
