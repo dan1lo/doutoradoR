@@ -14,8 +14,8 @@ modelo.v1 <- '
 #STRESS =~ S1+S2+S3
 #EMOCAO =~ EM1+ EM2 +EM3+ EM4
 #INTER =~ I1+I2+I3+I4
-#CRIATIVIDADE =~ C2+C3+C4
-TREIN =~ T1+T2+T3+T4
+CRIATIVIDADE =~ C1+C2+C3+C4
+#TREIN =~ T1+T2+T3+T4
 
 #T1~~T2
 
@@ -28,8 +28,8 @@ burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5
 #burnoutExaustaoEmocional ~STRESS
 #burnoutExaustaoEmocional ~EMOCAO
 #burnoutExaustaoEmocional ~INTER
-#burnoutExaustaoEmocional ~CRIATIVIDADE
-burnoutExaustaoEmocional ~TREIN
+burnoutExaustaoEmocional ~CRIATIVIDADE
+#burnoutExaustaoEmocional ~TREIN
 
 
 

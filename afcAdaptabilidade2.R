@@ -4,6 +4,8 @@ library(semTools)
 library(sqldf)
 library(semMediation)
 library(processR) #install.packages("processR")
+library(psy)
+
 dados<-read.csv2(file = "GitHub/doutoradoR/doutoradoModelo20.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
 
 names(dados)
@@ -30,4 +32,6 @@ modificationindices(modelo.v1.fit, sort =TRUE, minimum.value = 9)
 reliability(modelo.v1.fit)
 discriminantValidityTable(modelo.v1.fit)
 semPlot::semPaths(modelo.v1.fit, "std")
+mtmm(dados, list(c("S1","S2","S3"), c("C1","C2","C3","C4")))
+mtmm()
 sessionInfo()
