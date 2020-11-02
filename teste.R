@@ -59,10 +59,13 @@ et2 ~~et6
  I1 ~~      I2
 I2 ~~      I3
 
-SATISFACAO ~ instabilidadeTarefas
+SATISFACAO ~ a*STRESS + b*instabilidadeTarefas
+#instabilidadeTarefas ~ c*STRESS + d*SATISFACAO
+#STRESS ~ e*instabilidadeTarefas + f*SATISFACAO
 #SATISFACAO ~ c*TREIN + d*instabilidadeEquipe
-#ei1:= a*b
+ei1:= a*b
 #ei2:= c*d
+#ei3:= e*f
 
 ' #verificar modelo adaptabilidade
 

@@ -6,14 +6,24 @@ dados<-read.csv2(file = "teste/doutoradoModelo20.csv",header = TRUE, sep = ";", 
 
 names(dados)
 
+
 modelo.v1 <- '
 
-EMOCAO =~ EM1+ EM2 +EM3+ EM4
 
+TREIN =~ T1+T2+T3+T4
 
 burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
 
 instabilidadeTarefas =~ reque2+reque3+req4+req5+req6+req7
+
+
+TREINc <- TREIN - mean(TREIN)
+instabilidadeTarefasc <- instabilidadeTarefas - mean(instabilidadeTarefas)
+
+
+trein_x_instabilidadeTarefasc  <- TREINc * instabilidadeTarefasc
+
+
 #instabilidadeEquipe =~ equipe1+equipe2+equipe3
 
 #burnoutExaustaoEmocional ~ a*STRESS + b*instabilidadeTarefas
@@ -21,7 +31,7 @@ instabilidadeTarefas =~ reque2+reque3+req4+req5+req6+req7
 # burnoutExaustaoEmocional ~ STRESS   -0.362 0.000
 # instblddTr                 0.000        0.281
 
-burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
+#burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
 #--0.096 p 0.000
 #burnoutExaustaoEmocional ~                                                      
 #    EMOCAO                     0.000      -0.323
@@ -55,7 +65,7 @@ burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
 #    instblddEq (b)              0.000       0.445
 
 
-#burnoutExaustaoEmocional ~ a*TREIN + b*instabilidadeTarefas
+burnoutExaustaoEmocional ~ a*TREIN + b*instabilidadeTarefas
 #ei              0.001     -0.071
 #burnoutExaustaoEmocional ~                                                      
 #    TREIN (a)              0.000      -0.227
@@ -64,6 +74,9 @@ burnoutExaustaoEmocional ~ a*EMOCAO + b*instabilidadeTarefas
 
 
 ei:= a*b
+
+
+burnoutExaustaoEmocional ~ trein_x_instabilidadeTarefasc
 
 
 ee3 ~~    ee5
@@ -77,6 +90,8 @@ req4 ~~   req7
 
 modelo.v1.fit <- sem(modelo.v1, data=dados, std.lv=TRUE) 
 summary(modelo.v1.fit, fit.measures = TRUE, rsquare =TRUE, standardized = TRUE) # 
+
+
 fitMeasures(modelo.v1.fit)
 reliability(modelo.v1.fit)
 lavInspect(modelo.v1.fit,"cor.lv")
