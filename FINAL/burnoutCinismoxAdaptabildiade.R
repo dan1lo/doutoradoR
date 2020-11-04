@@ -4,17 +4,17 @@ library(sem)
 library(lavaan)
 library(semTools)
 library(sqldf)
-dados<-read.csv2(file = "teste/doutoradoModelo20.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
+dados<-read.csv2(file = "teste/doutoradoModelo30.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
 
 names(dados)
 
 modelo.v1 <- '
 
 
-STRESS =~ S1+S2+S3
+#STRESS =~ S1+S2+S3
 #EMOCAO =~ EM1+ EM2 +EM3+ EM4
 #INTER =~ I1+I2+I3+I4
-#CRIATIVIDADE =~ C2+C3+C4
+CRIATIVIDADE =~ C1+C2+C3+C4
 #TREIN =~ T1+T2+T3+T4
 
 #T1~~T2
@@ -25,10 +25,10 @@ STRESS =~ S1+S2+S3
 burnoutCinismo =~ ci1+ci2+ci3+ci4
 #burnoutEficacia =~ et1+et2+et3+et6+et4
 
-burnoutCinismo ~STRESS
+#burnoutCinismo ~STRESS
 #burnoutCinismo ~EMOCAO
 #burnoutCinismo ~INTER
-#burnoutCinismo ~CRIATIVIDADE
+burnoutCinismo ~CRIATIVIDADE
 #burnoutCinismo ~TREIN
 
 ci3 ~~  ci4 
