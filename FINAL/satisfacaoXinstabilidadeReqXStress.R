@@ -2,7 +2,7 @@ library(sem)
 library(lavaan)
 library(semTools)
 library(sqldf)
-dados<-read.csv2(file = "teste/doutoradoModelo20.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
+dados<-read.csv2(file = "teste/doutoradoModelo40.csv",header = TRUE, sep = ";", dec=",") # abrir arquivo
 
 names(dados)
 
@@ -49,7 +49,7 @@ S1.req5 ~~   S3.req5
 
 '
 
-modelo.v1.fit <- sem(modelo.v1, data=dados.dmc, std.lv=TRUE) 
+modelo.v1.fit <- sem(modelo.v1, data=dados.dmc, std.lv=TRUE,ordered = TRUE) 
 summary(modelo.v1.fit, fit.measures = TRUE, rsquare =TRUE, standardized = TRUE) # fitMeasures(modelo.v1.fit)
 
 modificationindices(modelo.v1.fit, sort =TRUE, minimum.value = 9)
