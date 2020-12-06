@@ -14,7 +14,7 @@ SATISFACAO=~ sat1+sat2+sat4
 
 ' #verificar modelo adaptabilidade
 
-modelo.v1.fit <- sem(modelo.v1, data=dados, std.lv=TRUE) 
+modelo.v1.fit <- sem(modelo.v1, data=dados, std.lv=TRUE,ordered = TRUE) 
 summary(modelo.v1.fit, fit.measures = TRUE, rsquare =TRUE, standardized = TRUE) # fitMeasures(modelo.v1.fit)
 lavInspect(modelo.v1.fit,"cor.lv")
 fitMeasures(modelo.v1.fit)
