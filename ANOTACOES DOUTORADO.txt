@@ -1,0 +1,84 @@
+# adaptabilidade 
+
+What Makes A Great Software Engineer? 
+Ser adptável também é uma caracteristica de um bom desenvolvedor de software mas como medir a adaptabilidade na Engenharia de Softwware?
+
+
+# Adaptabildiade x burnout
+
+Existe poucos estudos que buscam entender todas as três dimensões do burnout na ES
+Existe poucos estudos na ES que buscam entender como caracteristiscas indivudais podem afetar o burnout. (e a satisfação)
+SHIH, Sheng-Pao et al. Job burnout of the information technology worker: Work exhaustion, depersonalization, and personal accomplishment. Information & Management, v. 50, n. 7, p. 582-589, 2013.
+individual and work‐related factors influencing burnout of mental health professionals: a meta‐analysis
+The predictive value of individual factors, work‐related factors, and work–home interaction on burnout in female and male physicians: a longitudinal study†
+Apesar de "Successful interventions include the consideration of the individual within the context of the workplace."
+https://onlinelibrary.wiley.com/doi/abs/10.1002/9781118625392.wbecp142
+
+A adaptabilidade é um caracteristica individual já investigada, mas mesmo em outras áreas, não entendemos as relações completamente suas realações com o burnout. Dentro de um contexto que a mudança é importante, entender o quanto que a relação da capactidade do individuo se adaptar e o burnout é importante, pois pode identificar individuos que tem propensão a terem maaiores problemas de burnout, além disso, mesmo a adaptabilidade individual sendo um fator mais estável, pode ser incentivada a mudança a longo prazo, produzindo individivuos com maiores percepções de adaptabildiades que tem uma relação negativa com o burnout.
+
+
+Entender uma big picture também pode ser importante porque um fator pode impactar diferentes dimensões do burnout das mais diversas maneiras
+
+Performance and Strain Levels of IT Workers Engaged in Rapidly Changing Environments: A Person-Job Fit Perspective
+
+The information technology (IT) work environment provides an ideal setting to study the effects of change, since IT professionals face relentless technological innovation and change, which must be incorporated into their jobs (Gallivan, 2004; Straub and Watson, 2001). In addition, research indicates that individuals can behave differently during periods of change and severe stress (Torrance, 1961), 
+
+The literature also supports the interaction between other outcomes of fit, such as stress (manifested as strain), and performance (e.g., Green, 1972). We assert that if an individual’s needs are higher than is being supplied in the new work environment relative to the previous work environment, then work processes may be less efficient and work outcomes may be of lower quality. As an example, consider an individual who has established equilibrium between his or her needs regarding supervisory support and the job environment supplies of them.
+
+Individuos mais adaptáveis se observam mais eficazes, e a eficácia diminui o burnout.
+Esse resultado é inedito
+
+# adaptabilidade x satisfação
+Individuos 
+Existe poucos estudos na ES que buscam entender como caracteristiscas indivudais podem  (e a satisfação) o modelo de cesár sugere isso
+
+ Enhanced developer satisfaction may improve the attraction, retention and health of employees, while higher productivity should reduce costs and increase customer satisfaction through faster software improvements "Maior satisfação do desenvolvedor pode melhorar a atração, retenção e saúde dos funcionários, enquanto uma maior produtividade deve reduzir custos e aumentar a satisfação do cliente por meio de melhorias de software mais rápidas"
+
+There are also many social and technical factors that may impact satisfaction and productivity, but which factors have the most impact is not clear, especially for specific development contexts. Assim como quais fatores individuais podem impactar na satisfação 
+
+However, we lack an understanding of the relationship between these elements
+
+
+However, not enough was known on how much satisfaction and productivity are related  and which other work factors may influence job satisfaction and
+perceived productivity.
+
+Graziotin et al. [8] report that lacking skill by coworkers can be a source of unhappiness for developers, and we included “skilled coworkers" as one of the factors potentially influencing work satisfaction in our study.
+
+
+y Rue and Byars - Social relationships - Job design (scope,depth,interest,perceived value)
+ Ao viver em um ambiente que sofre com constante mudanças, 
+
+# Satisfação e burnout
+
+Falta de relação entre cada dimensão do burnout e a satisfação 
+Estudo focam na exaustão na Engenharia de Software mas existe falta de entendimento das outras relações com o satisfação e o burnout e as outras dimensões 
+Esse tipo de entendimento pode ajudar a prever caso de burnout, e de baixa satisfação na equipe que podem levar ao absentismo, baixa performance, etc.
+
+Are Happy Developers More Productive? 
+Desenvolvedores mais felizes são mais produtivos
+
+https://www.redalyc.org/pdf/172/17217376010.pdf
+Job Satisfaction and Cortisol Awakening Response in Teachers Scoring high and low on Burnout
+Total job satisfaction -.426** -.517** .597**
+exaustao cinismo e eficacia
+After carrying out a meta-analysis, Faragher, Cass, & Cooper, (2005) found job satisfaction to be more strongly related to mental and psychological problems than to physical complaints. The closest relationship was found between burnout and job satisfaction (r = .478), as it failed to reach statistical significance in only 5 of the 62 studies on burnout analyzed
+
+Por que?
+Mesmo sabendo que ela existe em outras ´áreas, não sabemos como ela ocorre na nossa.
+
+Na Engenharia de Software a relação entre o burnout e a satisfação é mais forte que em outras áreas. 
+
+
+
+
+# Satisfação e instabildiade
+
+Dada já comentada da satisfação e do burnout na Engenharia de Software,
+
+
+
+# instabildiade e burnout
+
+
+
+Managers in the software profession would benefit from greater understanding of the nature and dynamics of unhappiness among developers, and they could take action to prevent dysfunctional re- sponses among employees ( Vecchio, 20 0 0 ) 
