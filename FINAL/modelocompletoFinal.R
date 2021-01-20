@@ -19,11 +19,11 @@ TREIN =~ T1+T2+T3+T4
 SATISFACAO=~ sat1+sat2+sat4
 
 
-instabilidadeTarefas =~ reque2+reque3+req5+req6+req7
-instabilidadeEquipe=~ equipe1+equipe2+equipe3
-burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
-burnoutCinismo =~ ci1+ci2+ci3+ci4
-burnoutEficacia =~ et1+et2+et3+et6
+#instabilidadeTarefas =~ reque2+reque3+req5+req6+req7
+#instabilidadeEquipe=~ equipe1+equipe2+equipe3
+#burnoutExaustaoEmocional =~ ee1 +ee2 +ee3+ee5+ee4
+#burnoutCinismo =~ ci1+ci2+ci3+ci4
+#burnoutEficacia =~ et1+et2+et3+et6+et5
 
 et3 ~~ et6
 ci3 ~~ ci4
