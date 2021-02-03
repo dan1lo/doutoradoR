@@ -21,9 +21,7 @@ burnoutCinismo =~ ci1+ci2+ci3+ci4
 burnoutEficacia =~ et1+et2+et3+et5+et6
 
 ee3 ~~ ee5
-et1 ~~ et6
-et2 ~~ et6
-
+et3 ~~ et5
 
 
 ' #verificar modelo adaptabilidade
